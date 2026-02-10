@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champêtre - Restaurant Coréen Paris 15</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-paper: #e8dac1; /* Beige un peu plus chaud comme le menu */
+            --ink-color: #1a232c; /* Bleu nuit profond */
+            --accent: #d86b45; 
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-paper);
+            color: var(--ink-color);
+            margin: 0;
+            padding: 0;
+            /* Texture papier subtile */
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+        }
+
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 3.8rem;
+            letter-spacing: 6px;
+            margin: 0;
+            text-transform: uppercase;
+            color: var(--ink-color);
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.4);
+        }
+
+        .tagline {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem; /* Un peu plus grand pour être bien visible */
+            margin-top: 10px;
+            font-weight: 500;
+            color: var(--ink-color);
+            display: block;
+        }
+
+        .subtitle {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.1rem;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid var(--ink-color);
+            display: inline-block;
+            padding-bottom: 5px;
+            opacity: 0.8;
+        }
+
+        /* --- CONTENEUR PRINCIPAL --- */
+        .container {
+            max-width: 800px;
+            margin: 0 auto 120px; /* Marge bas pour le bouton fixe */
+            padding: 20px;
+        }
+
+        /* --- INFO BOXES --- */
+        .info-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.4);
+            border: 2px solid var(--ink-color);
+            border-radius: 20px 5px 20px 5px; /* Coins asymétriques style dessin */
+            padding: 20px 30px;
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+            box-shadow: 4px 4px 0px rgba(26, 35, 44, 0.1);
+        }
+
+        .info-card h3 {
+            font-family: 'Fredoka', sans-serif;
+            margin-top: 0;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            border-bottom: 1px dashed var(--ink-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* --- MENU --- */
+        .category-title {
+            text-align: center;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2rem;
+            margin: 60px 0 30px;
+            text-transform: uppercase;
+            position: relative;
+        }
+        
+        /* Décoration autour du titre */
+        .category-title::before, .category-title::after {
+            content: '•';
+            color: var(--ink-color);
+            margin: 0 15px;
+            opacity: 0.6;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 25px;
+            border-bottom: 1px dotted rgba(26, 35, 44, 0.3);
+            padding-bottom: 15px;
+            transition: transform 0.2s;
+        }
+
+        .menu-item:hover {
+            transform: translateX(5px);
+        }
+
+        .item-content {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .item-name {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .item-desc {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: #444;
+        }
+
+        .item-price {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            background: var(--ink-color);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        /* --- MAP & FOOTER --- */
+        .map-wrapper {
+            margin-top: 60px;
+            border: 3px solid var(--ink-color);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 8px 8px 0px rgba(26, 35, 44, 0.15);
+            background: #fff;
+            height: 400px;
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: sepia(10%); /* Légère teinte sépia pour intégrer la carte au design */
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-style: italic;
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        /* --- STICKY CTA (Mobile) --- */
+        .sticky-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            width: 90%;
+            max-width: 450px;
+        }
+
+        .btn-call {
+            display: block;
+            background-color: var(--ink-color);
+            color: #fff;
+            text-align: center;
+            padding: 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 2px solid #fff;
+            transition: transform 0.2s;
+        }
+
+        .btn-call:active {
+            transform: scale(0.98);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.8rem; }
+            .tagline { font-size: 1.2rem; }
+            .menu-item { flex-direction: column; }
+            .item-price { align-self: flex-end; margin-top: 8px; font-size: 1.1rem;}
+            .item-content { padding-right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CHAMPÊTRE</h1>
+        <div class="tagline">Restaurant Coréen - Plats à partager</div>
+        <div class="subtitle">Paris 15</div>
+    </header>
+
+    <div class="container">
+
+        <div class="info-section">
+            <div class="info-card">
+                <h3>🕰 Horaires</h3>
+                <p><strong>Lundi au Dimanche</strong></p>
+                <p>10h00 – 15h00<br>18h00 – 22h30</p>
+            </div>
+            <div class="info-card">
+                <h3>🥡 Service</h3>
+                <p>Sur place & à emporter</p>
+                <p><strong>09 56 66 68 92</strong></p>
+                <p>4 rue de Dantzig, 75015 Paris</p>
+            </div>
+        </div>
+
+        <h2 class="category-title">La Carte</h2>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Kimchijeon</span>
+                <span class="item-desc">Galettes coréennes de farine de pomme de terre et kimchi</span>
+            </div>
+            <span class="item-price">12€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Pajeon</span>
+                <span class="item-desc">Galettes coréennes aux poireaux et fruits de mer</span>
+            </div>
+            <span class="item-price">12€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Tangsyuyuk</span>
+                <span class="item-desc">Porc frit à la sauce aigre-douce</span>
+            </div>
+            <span class="item-price">12€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Fried Chicken</span>
+                <span class="item-desc">Poulet frit à la coréenne (nature / soja / piquant)</span>
+            </div>
+            <span class="item-price">10€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Kimbap</span>
+                <span class="item-desc">Rouleau de riz garni aux légumes (boeuf / thon / végé)</span>
+            </div>
+            <span class="item-price">10€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Dolsot Bibimbap</span>
+                <span class="item-desc">Bol de riz garni de légumes, en pierre chaude (boeuf / végé)</span>
+            </div>
+            <span class="item-price">15€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Tteokbokki</span>
+                <span class="item-desc">Gâteaux de riz pâte de poisson (soja / piquant)</span>
+            </div>
+            <span class="item-price">10€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Japchae</span>
+                <span class="item-desc">Vermicelles de patate douce, accompagnés de légumes</span>
+            </div>
+            <span class="item-price">12€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Yukhoe</span>
+                <span class="item-desc">Tartare de boeuf à la coréenne</span>
+            </div>
+            <span class="item-price">12€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Mandu</span>
+                <span class="item-desc">Raviolis grillés (porc / végé / kimchi)</span>
+            </div>
+            <span class="item-price">9€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Bulgogi</span>
+                <span class="item-desc">Fines tranches marinées (So: boeuf / Dwaeji: porc)</span>
+            </div>
+            <span class="item-price">15€</span>
+        </div>
+
+        <h2 class="category-title">Desserts</h2>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Hotteok</span>
+                <span class="item-desc">Pancake sucré cannelle & glace vanille</span>
+            </div>
+            <span class="item-price">6€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Chapssaltteok</span>
+                <span class="item-desc">Gâteaux riz gluant, pâte haricots rouges</span>
+            </div>
+            <span class="item-price">6€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Yakgwa</span>
+                <span class="item-desc">Biscuit frit au gingembre et au miel</span>
+            </div>
+            <span class="item-price">6€</span>
+        </div>
+
+        <h2 class="category-title">Nous trouver</h2>
+        <div class="map-wrapper">
+            <iframe 
+                src="https://maps.google.com/maps?q=Champ%C3%AAtre%204%20rue%20de%20Dantzig%2075015%20Paris&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <footer>
+            <p>Chez nous, chaque plat se savoure à plusieurs.<br>
+            Découvrez ensemble le plaisir de la table coréenne.</p>
+        </footer>
+
+    </div>
+
+    <div class="sticky-bar">
+        <a href="tel:0956666892" class="btn-call">📞 COMMANDER (09 56 66 68 92)</a>
+    </div>
+
+</body>
+</html>
