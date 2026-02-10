@@ -25,9 +25,10 @@
             padding: 0;
             background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
             line-height: 1.6;
-            padding-bottom: 80px;
+            padding-bottom: 80px; /* Espace pour le bouton fixe */
         }
 
+        /* --- HEADER --- */
         header {
             text-align: center;
             padding: 60px 20px 40px;
@@ -65,12 +66,14 @@
             opacity: 0.8;
         }
 
+        /* --- CONTENEUR PRINCIPAL --- */
         .container {
             max-width: 800px;
             margin: 0 auto 60px;
             padding: 20px;
         }
 
+        /* --- INFO BOXES --- */
         .info-section {
             display: flex;
             flex-wrap: wrap;
@@ -100,6 +103,7 @@
             margin-bottom: 15px;
         }
 
+        /* NOUVEAU STYLE POUR LES LIENS CLIQUABLES */
         .contact-link {
             color: var(--ink-color);
             text-decoration: none;
@@ -113,6 +117,7 @@
             border-bottom-style: solid;
         }
 
+        /* --- MENU --- */
         .category-title {
             text-align: center;
             font-family: 'Fredoka', sans-serif;
@@ -174,6 +179,7 @@
             white-space: nowrap;
         }
 
+        /* --- MAP & FOOTER --- */
         .map-wrapper {
             margin-top: 60px;
             border: 3px solid var(--ink-color);
@@ -200,6 +206,7 @@
             font-size: 1.1rem;
         }
 
+        /* --- STICKY CTA (Mobile) --- */
         .sticky-bar {
             position: fixed;
             bottom: 20px;
@@ -211,6 +218,7 @@
         }
 
         .btn-call {
+            /* Changement pour utiliser Flexbox (alignement vertical) */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -231,6 +239,7 @@
             transform: scale(0.98);
         }
         
+        /* Styles pour les textes dans le bouton */
         .btn-title {
             font-family: 'Fredoka', sans-serif;
             font-size: 1.2rem;
