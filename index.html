@@ -25,7 +25,7 @@
             padding: 0;
             background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
             line-height: 1.6;
-            padding-bottom: 80px; /* Espace pour le bouton fixe */
+            padding-bottom: 100px; /* Espace pour le bouton fixe */
         }
 
         /* --- HEADER --- */
@@ -103,13 +103,14 @@
             margin-bottom: 15px;
         }
 
-        /* NOUVEAU STYLE POUR LES LIENS CLIQUABLES */
         .contact-link {
             color: var(--ink-color);
             text-decoration: none;
             border-bottom: 1px dotted var(--ink-color);
             transition: background 0.3s;
             font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
         }
         
         .contact-link:hover {
@@ -209,25 +210,23 @@
         /* --- STICKY CTA (Mobile) --- */
         .sticky-bar {
             position: fixed;
-            bottom: 20px;
+            bottom: 25px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 999;
             width: 90%;
-            max-width: 450px;
+            max-width: 400px;
         }
 
         .btn-call {
-            /* Changement pour utiliser Flexbox (alignement vertical) */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            
             background-color: var(--ink-color);
             color: #fff;
             text-align: center;
-            padding: 12px 20px; /* Padding ajusté */
+            padding: 15px 25px;
             border-radius: 50px;
             text-decoration: none;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -239,20 +238,19 @@
             transform: scale(0.98);
         }
         
-        /* Styles pour les textes dans le bouton */
         .btn-title {
             font-family: 'Fredoka', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             letter-spacing: 1px;
             font-weight: bold;
             line-height: 1.2;
+            margin-bottom: 2px;
         }
         
         .btn-number {
             font-family: 'Lato', sans-serif;
-            font-size: 1rem;
+            font-size: 1.1rem;
             opacity: 0.9;
-            margin-top: 2px;
         }
 
         @media (max-width: 600px) {
@@ -287,7 +285,7 @@
                     <a href="tel:0956666892" class="contact-link">09 56 66 68 92</a>
                 </p>
                 <p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Restaurant+Champetre+4+rue+de+Dantzig+Paris" target="_blank" class="contact-link">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Champêtre+4+rue+de+Dantzig+Paris" target="_blank" class="contact-link">
                         4 rue de Dantzig, 75015 Paris
                     </a>
                 </p>
@@ -413,7 +411,7 @@
         <h2 class="category-title">Nous trouver</h2>
         <div class="map-wrapper">
             <iframe 
-                src="https://maps.google.com/maps?q=4%20rue%20de%20Dantzig%2075015%20Paris&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                src="https://maps.google.com/maps?q=Champ%C3%AAtre%204%20Rue%20de%20Dantzig%2075015%20Paris&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 allowfullscreen="" 
                 loading="lazy" 
                 referrerpolicy="no-referrer-when-downgrade">
