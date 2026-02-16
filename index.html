@@ -26,7 +26,7 @@
             background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
             line-height: 1.6;
             padding-bottom: 100px; /* Espace pour les boutons fixes */
-            scroll-behavior: smooth; /* Défilement fluide vers le formulaire */
+            scroll-behavior: smooth;
         }
 
         /* --- HEADER --- */
@@ -181,7 +181,7 @@
             white-space: nowrap;
         }
 
-        /* --- FORMULAIRE RESERVATION --- */
+        /* --- FORMULAIRE RESERVATION (NOUVEAU) --- */
         .reservation-box {
             background: #fff;
             border: 3px solid var(--ink-color);
@@ -279,7 +279,7 @@
             font-size: 1.1rem;
         }
 
-        /* --- STICKY CTA (Mobile) - NEW DESIGN --- */
+        /* --- STICKY CTA (Mobile) - UPDATED --- */
         .sticky-bar {
             position: fixed;
             bottom: 20px;
@@ -314,13 +314,11 @@
             transform: scale(0.96);
         }
 
-        /* Bouton Commander (Téléphone) */
         .btn-call {
             background-color: var(--ink-color);
             color: #fff;
         }
 
-        /* Bouton Réserver (Ancre) */
         .btn-book {
             background-color: var(--accent);
             color: #fff;
@@ -333,7 +331,7 @@
             .item-price { align-self: flex-end; margin-top: 8px; font-size: 1.1rem;}
             .item-content { padding-right: 0; }
             
-            /* Sur mobile, on empile les champs du formulaire pour lisibilité */
+            /* Stack form items on mobile */
             .form-grid {
                 grid-template-columns: 1fr;
             }
@@ -385,8 +383,32 @@
 
         <div class="menu-item">
             <div class="item-content">
+                <span class="item-name">Pajeon</span>
+                <span class="item-desc">Galettes coréennes aux poireaux et fruits de mer</span>
+            </div>
+            <span class="item-price">12€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Tangsyuyuk</span>
+                <span class="item-desc">Porc frit à la sauce aigre-douce</span>
+            </div>
+            <span class="item-price">12€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
                 <span class="item-name">Fried Chicken</span>
                 <span class="item-desc">Poulet frit à la coréenne (nature / soja / piquant)</span>
+            </div>
+            <span class="item-price">10€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Kimbap</span>
+                <span class="item-desc">Rouleau de riz garni aux légumes (boeuf / thon / végé)</span>
             </div>
             <span class="item-price">10€</span>
         </div>
@@ -398,7 +420,39 @@
             </div>
             <span class="item-price">15€</span>
         </div>
-        
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Tteokbokki</span>
+                <span class="item-desc">Gâteaux de riz pâte de poisson (soja / piquant)</span>
+            </div>
+            <span class="item-price">10€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Japchae</span>
+                <span class="item-desc">Vermicelles de patate douce, accompagnés de légumes</span>
+            </div>
+            <span class="item-price">12€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Yukhoe</span>
+                <span class="item-desc">Tartare de boeuf à la coréenne</span>
+            </div>
+            <span class="item-price">12€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Mandu</span>
+                <span class="item-desc">Raviolis grillés (porc / végé / kimchi)</span>
+            </div>
+            <span class="item-price">9€</span>
+        </div>
+
         <div class="menu-item">
             <div class="item-content">
                 <span class="item-name">Bulgogi</span>
@@ -417,7 +471,24 @@
             <span class="item-price">6€</span>
         </div>
 
-        <div id="reservation"></div> <h2 class="category-title">Réserver une table</h2>
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Chapssaltteok</span>
+                <span class="item-desc">Gâteaux riz gluant, pâte haricots rouges</span>
+            </div>
+            <span class="item-price">6€</span>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-content">
+                <span class="item-name">Yakgwa</span>
+                <span class="item-desc">Biscuit frit au gingembre et au miel</span>
+            </div>
+            <span class="item-price">6€</span>
+        </div>
+
+        <div id="reservation"></div>
+        <h2 class="category-title">Réserver une table</h2>
         
         <div class="reservation-box">
             <form action="#" method="post" class="form-grid">
