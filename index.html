@@ -10,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        /* --- CORRECTIF IMPORTANT : Empêche le débordement --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         :root {
             --bg-paper: #e8dac1; 
             --ink-color: #1a232c; 
@@ -181,14 +186,15 @@
             white-space: nowrap;
         }
 
-        /* --- FORMULAIRE RESERVATION (NOUVEAU) --- */
+        /* --- FORMULAIRE RESERVATION (CORRIGÉ) --- */
         .reservation-box {
             background: #fff;
             border: 3px solid var(--ink-color);
             border-radius: 15px;
-            padding: 30px;
+            padding: 25px; /* Réduit légèrement pour mobile */
             box-shadow: 8px 8px 0px rgba(26, 35, 44, 0.15);
             margin-top: 20px;
+            width: 100%; /* S'assure de ne pas dépasser le parent */
         }
 
         .form-grid {
@@ -200,6 +206,7 @@
         .form-group {
             display: flex;
             flex-direction: column;
+            width: 100%; /* Force le conteneur à ne pas dépasser */
         }
 
         .form-group.full-width {
@@ -211,18 +218,21 @@
             font-weight: 500;
             margin-bottom: 5px;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
         }
 
         .form-group input, 
         .form-group select, 
         .form-group textarea {
+            width: 100%; /* CRUCIAL : Force l'input à rester dans la boite */
             padding: 12px;
             border: 2px solid #ccc;
             border-radius: 8px;
             font-family: 'Lato', sans-serif;
             font-size: 1rem;
             background: #fdfdfd;
+            /* box-sizing est géré par la règle globale */
         }
 
         .form-group input:focus, 
@@ -246,6 +256,7 @@
             text-transform: uppercase;
             transition: background 0.3s;
             margin-top: 10px;
+            width: 100%;
         }
 
         .btn-submit:hover {
@@ -279,17 +290,17 @@
             font-size: 1.1rem;
         }
 
-        /* --- STICKY CTA (Mobile) - UPDATED --- */
+        /* --- STICKY CTA (Mobile) --- */
         .sticky-bar {
             position: fixed;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 999;
-            width: 95%;
+            width: 92%; /* Marge de sécurité sur les bords */
             max-width: 500px;
             display: flex;
-            gap: 12px;
+            gap: 10px;
         }
 
         .btn-sticky {
@@ -298,16 +309,17 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 12px 15px;
+            padding: 12px 10px; /* Padding ajusté pour éviter les débordements de texte */
             border-radius: 50px;
             text-decoration: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.25);
             font-family: 'Fredoka', sans-serif;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem; /* Légèrement réduit pour être sûr que ça rentre */
             text-transform: uppercase;
             transition: transform 0.2s, background 0.2s;
             border: 2px solid #fff;
+            white-space: nowrap; /* Empêche le texte de passer à la ligne */
         }
 
         .btn-sticky:active {
@@ -325,17 +337,27 @@
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2.8rem; }
-            .tagline { font-size: 1.2rem; }
+            h1 { font-size: 2.5rem; } /* Titre un peu plus petit sur mobile */
+            .tagline { font-size: 1.1rem; }
             .menu-item { flex-direction: column; }
             .item-price { align-self: flex-end; margin-top: 8px; font-size: 1.1rem;}
             .item-content { padding-right: 0; }
             
-            /* Stack form items on mobile */
-            .form-grid {
-                grid-template-columns: 1fr;
+            /* -- CORRECTIF MOBILE DU FORMULAIRE -- */
+            .reservation-box {
+                padding: 20px 15px; /* Moins de padding interne sur mobile */
             }
+            
+            .form-grid {
+                grid-template-columns: 1fr; /* 1 seule colonne obligatoire */
+                gap: 15px;
+            }
+            
             .form-group.full-width {
+                grid-column: span 1; /* Le full-width redevient 1 colonne */
+            }
+
+            .btn-submit {
                 grid-column: span 1;
             }
         }
