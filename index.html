@@ -186,15 +186,15 @@
             white-space: nowrap;
         }
 
-        /* --- FORMULAIRE RESERVATION (CORRIGÉ) --- */
+        /* --- FORMULAIRE RESERVATION --- */
         .reservation-box {
             background: #fff;
             border: 3px solid var(--ink-color);
             border-radius: 15px;
-            padding: 25px; /* Réduit légèrement pour mobile */
+            padding: 25px;
             box-shadow: 8px 8px 0px rgba(26, 35, 44, 0.15);
             margin-top: 20px;
-            width: 100%; /* S'assure de ne pas dépasser le parent */
+            width: 100%;
         }
 
         .form-grid {
@@ -206,7 +206,7 @@
         .form-group {
             display: flex;
             flex-direction: column;
-            width: 100%; /* Force le conteneur à ne pas dépasser */
+            width: 100%;
         }
 
         .form-group.full-width {
@@ -225,14 +225,13 @@
         .form-group input, 
         .form-group select, 
         .form-group textarea {
-            width: 100%; /* CRUCIAL : Force l'input à rester dans la boite */
+            width: 100%;
             padding: 12px;
             border: 2px solid #ccc;
             border-radius: 8px;
             font-family: 'Lato', sans-serif;
             font-size: 1rem;
             background: #fdfdfd;
-            /* box-sizing est géré par la règle globale */
         }
 
         .form-group input:focus, 
@@ -297,7 +296,7 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 999;
-            width: 92%; /* Marge de sécurité sur les bords */
+            width: 92%;
             max-width: 500px;
             display: flex;
             gap: 10px;
@@ -309,17 +308,17 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 12px 10px; /* Padding ajusté pour éviter les débordements de texte */
+            padding: 12px 10px;
             border-radius: 50px;
             text-decoration: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.25);
             font-family: 'Fredoka', sans-serif;
             font-weight: 600;
-            font-size: 0.95rem; /* Légèrement réduit pour être sûr que ça rentre */
+            font-size: 0.95rem;
             text-transform: uppercase;
             transition: transform 0.2s, background 0.2s;
             border: 2px solid #fff;
-            white-space: nowrap; /* Empêche le texte de passer à la ligne */
+            white-space: nowrap;
         }
 
         .btn-sticky:active {
@@ -337,24 +336,23 @@
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; } /* Titre un peu plus petit sur mobile */
+            h1 { font-size: 2.5rem; }
             .tagline { font-size: 1.1rem; }
             .menu-item { flex-direction: column; }
             .item-price { align-self: flex-end; margin-top: 8px; font-size: 1.1rem;}
             .item-content { padding-right: 0; }
             
-            /* -- CORRECTIF MOBILE DU FORMULAIRE -- */
             .reservation-box {
-                padding: 20px 15px; /* Moins de padding interne sur mobile */
+                padding: 20px 15px;
             }
             
             .form-grid {
-                grid-template-columns: 1fr; /* 1 seule colonne obligatoire */
+                grid-template-columns: 1fr;
                 gap: 15px;
             }
             
             .form-group.full-width {
-                grid-column: span 1; /* Le full-width redevient 1 colonne */
+                grid-column: span 1;
             }
 
             .btn-submit {
@@ -566,7 +564,12 @@
                     <input type="text" id="name" name="name" placeholder="Votre nom" required>
                 </div>
 
-                <div class="form-group full-width">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+
+                <div class="form-group">
                     <label for="phone">Téléphone</label>
                     <input type="tel" id="phone" name="phone" placeholder="06 00 00 00 00" required>
                 </div>
